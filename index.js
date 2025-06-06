@@ -4,6 +4,8 @@ import ejs from 'ejs';
 
 const port = 3000;
 const app = express();
+
+app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
@@ -23,14 +25,19 @@ app.get("/new", (req, res) => {
     res.render("new.ejs")
 });
 
-app.get("/edit", (req, res) => {
-    res.render("edit.ejs");
-})
+// app.get("/edit", (req, res) => {
+//     res.render("edit.ejs");
+// })
 
-app.get("/show", (req, res) => {
-    res.render("show.ejs");
-})
+// app.get("/show", (req, res) => {
+//     res.render("show.ejs");
+// })
 
+app.post("/submit", (req, res) => {
+    const title = req.body["title"];
+    const text = req.body["text"];
+    res.render("index.ejs", {title: title, text: text,});
+})
 
 app.listen(port, () => {
     console.log(`Listening on port ${port}`);

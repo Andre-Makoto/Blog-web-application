@@ -1,15 +1,18 @@
 <%- include("partials/header.ejs") %>
 <main>
-<h1> My Posts!</h1>
+<h1> Welcome to my Blog!</h1>
+<p>This is a simple blog where you can create, view, edit, and delete your own posts. 
+ Feel free to write anything you like and manage your personal posts with ease.
+</p>
 
-<% /* %>
-Se não houver posts ainda, retornar "Nenhum post ainda!"
-<% if (locals.condition){ %>
-<h2>Nenhum post ainda!</h2>
+<hr>
+
+<% if (locals.title && locals.text) { %>
+    <h2><%= title %> </h2>
+    <p> <%= text %> </p>
 <% } else { %>
-    <h2>Post 1</h2>
+    <p>No posts have been created yet. Start by <a href="/new">creating your first post</a>!</p>
 <% } %>
-<% */ %>
 
 </main>
 <%- include("partials/footer.ejs") %> 
