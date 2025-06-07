@@ -41,7 +41,8 @@ app.post("/submit", (req, res) => {
     res.render("index.ejs", {posts});
     // Acredito que assim que requisitar POST, tenho que criar uma nova file para guardar o novo post com o seu respectivo index(posição na array).
     // Assim consigo usar method get para res.render esse novo post. 
-    // Com isso podemos visualizar o post, editar o post e deletar o post.
+    // Com isso podemos visualizar posts, editar posts e deletar posts.
+    //
 })
 
 
