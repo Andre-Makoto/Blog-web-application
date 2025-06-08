@@ -45,6 +45,13 @@ app.post("/submit", (req, res) => {
     //
 })
 
+app.post("", (req, res) => {
+
+});
+
+app.delete("", (req, res) => {
+
+});
 
 app.listen(port, () => {
     console.log(`Listening on port ${port}`);
