@@ -1,7 +1,7 @@
 import express from 'express';
 import bodyParser from 'body-parser';
 import ejs from 'ejs';
-import fs from 'fs'
+import { writeFile } from 'fs';
 import { dirname } from "path";
 import { fileURLToPath } from "url";
 
