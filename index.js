@@ -4,8 +4,8 @@ import ejs from 'ejs';
 import fs from 'fs'
 import { dirname } from "path";
 import { fileURLToPath } from "url";
-const __dirname = dirname(fileURLToPath(import.meta.url));
 
+const __dirname = dirname(fileURLToPath(import.meta.url));
 const port = 3000;
 const app = express();
 const posts = [];
@@ -49,6 +49,7 @@ app.post("/submit", (req, res) => {
         text: text,
         createdAt: new Date()
     }
+    fs.writeFile();
     // Acredito que assim que requisitar POST, tenho que criar uma nova file para guardar o novo post com o seu respectivo index(posição na array).
     // Assim consigo usar method get para res.render esse novo post. 
     // Com isso podemos visualizar posts, editar posts e deletar posts.
