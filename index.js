@@ -49,11 +49,13 @@ app.post("/submit", (req, res) => {
         text: text,
         createdAt: new Date()
     }
-    fs.writeFile();
-    // Acredito que assim que requisitar POST, tenho que criar uma nova file para guardar o novo post com o seu respectivo index(posição na array).
-    // Assim consigo usar method get para res.render esse novo post. 
-    // Com isso podemos visualizar posts, editar posts e deletar posts.
-    //
+    const jsonContent = JSON.stringify(postData, null, 2);
+    try {
+        fsPromises.writeFile("posts", jsonContent);
+        console.log("File saved!");
+    } catch (err) {
+        console.log("Error: ", err)
+    } 
 })
 
 app.post("", (req, res) => {
