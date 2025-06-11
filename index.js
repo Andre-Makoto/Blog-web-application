@@ -2,6 +2,7 @@ import express from 'express';
 import bodyParser from 'body-parser';
 import ejs from 'ejs';
 import { writeFile } from "fs/promises";
+import path from "path";
 import { dirname } from "path";
 import { fileURLToPath } from "url";
 
@@ -49,10 +50,12 @@ app.post("/submit", (req, res) => {
         text: text,
         createdAt: new Date()
     }
+    const filePath = path.join(__dirname, "posts", "post1.json");
     const jsonContent = JSON.stringify(postData, null, 2);
+
     async function saveFile() {
         try {
-            await writeFile("posts/post1.json", jsonContent);
+            await writeFile(filePath, jsonContent);
             console.log("File saved!");
         } catch (err) {
             console.log("Error: ", err)
@@ -60,6 +63,9 @@ app.post("/submit", (req, res) => {
     } 
     saveFile();
 })
+
+// Next step now is to enable the possibility to take that JSON file with the data and open the edit, view and delete.
+// Probably will have to do somenthing related to the index of the post to make the path to this specific post.
 
 app.post("", (req, res) => {
 
