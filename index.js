@@ -66,6 +66,10 @@ app.post("/submit", (req, res) => {
 
 // Next step now is to enable the possibility to take that JSON file with the data and open the edit, view and delete.
 // Probably will have to do somenthing related to the index of the post to make the path to this specific post.
+// After that we need to check if everything is working.
+// When everthing works we do the styling.
+// Check if it is responsive with mobile/
+
 
 app.post("", (req, res) => {
 
