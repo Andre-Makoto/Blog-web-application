@@ -1,7 +1,7 @@
 import express from 'express';
 import bodyParser from 'body-parser';
 import ejs from 'ejs';
-import { writeFile } from 'fs';
+import { writeFile } from "fs/promises";
 import { dirname } from "path";
 import { fileURLToPath } from "url";
 
@@ -50,12 +50,15 @@ app.post("/submit", (req, res) => {
         createdAt: new Date()
     }
     const jsonContent = JSON.stringify(postData, null, 2);
-    try {
-        fsPromises.writeFile("posts", jsonContent);
-        console.log("File saved!");
-    } catch (err) {
-        console.log("Error: ", err)
+    async function saveFile() {
+        try {
+            await writeFile("posts/post1.json", jsonContent);
+            console.log("File saved!");
+        } catch (err) {
+            console.log("Error: ", err)
+        }   
     } 
+    saveFile();
 })
 
 app.post("", (req, res) => {
