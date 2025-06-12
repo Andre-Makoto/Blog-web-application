@@ -65,6 +65,7 @@ app.post("/submit", (req, res) => {
 })
 
 // Each post is now taking place of the first post, which is not making it possible to make multiple posts.
+// Now I have to save each post with a new file name so that it dont get replaced.
 // Next step now is to enable the possibility to take that JSON file with the data and open the edit, view and delete.
 // Probably will have to do somenthing related to the index of the post to make the path to this specific post.
 // After that we need to check if everything is working.
