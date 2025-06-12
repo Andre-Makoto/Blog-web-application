@@ -46,13 +46,17 @@ app.post("/submit", (req, res) => {
     const postData = {
         title: title,
         text: text,
+        createdAt: new Date(),
     }
-    const index = posts.length;
+    
+    const now = new Date();
+    const timeStamp = now.toISOString().replace(/[:.]/g, "-");
+
     posts.push(postData);
     
     res.render("index.ejs", {posts});
 
-    const filePath = path.join(__dirname, "posts", `post${index}.json`);
+    const filePath = path.join(__dirname, "posts", `post${timeStamp}.json`);
     const jsonContent = JSON.stringify(postData, null, 2);
 
     async function saveFile() {
