@@ -42,15 +42,17 @@ app.get("/show", (req, res) => {
 app.post("/submit", (req, res) => {
     const title = req.body["title"];
     const text = req.body["text"];
-    posts.push({title, text});
-    res.render("index.ejs", {posts});
 
     const postData = {
         title: title,
         text: text,
-        createdAt: new Date()
     }
-    const filePath = path.join(__dirname, "posts", `${postData.createdAt.getTime()}.json`);
+    const index = posts.length;
+    posts.push(postData);
+    
+    res.render("index.ejs", {posts});
+
+    const filePath = path.join(__dirname, "posts", `post${index}.json`);
     const jsonContent = JSON.stringify(postData, null, 2);
 
     async function saveFile() {
