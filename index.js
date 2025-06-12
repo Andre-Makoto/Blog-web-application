@@ -50,7 +50,7 @@ app.post("/submit", (req, res) => {
         text: text,
         createdAt: new Date()
     }
-    const filePath = path.join(__dirname, "posts", "post1.json");
+    const filePath = path.join(__dirname, "posts", `${postData.createdAt.getTime()}.json`);
     const jsonContent = JSON.stringify(postData, null, 2);
 
     async function saveFile() {
