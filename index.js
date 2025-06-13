@@ -76,7 +76,8 @@ app.post("/submit", (req, res) => {
 // Probably will have to do somenthing related to the index of the post to make the path to this specific post.
 // After that we need to check if everything is working.
 // When everthing works we do the styling.
-// Check if it is responsive with mobile. 
+// Check if it is responsive with mobile.
+//  
 
 
 app.post("", (req, res) => {
