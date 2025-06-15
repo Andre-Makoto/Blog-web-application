@@ -77,7 +77,7 @@ app.post("/submit", (req, res) => {
 // After that we need to check if everything is working.
 // When everthing works we do the styling.
 // Check if it is responsive with mobile.
-//  
+// 
 
 
 app.post("", (req, res) => {
